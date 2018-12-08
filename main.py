@@ -7,7 +7,7 @@ from sms_prices import SMS
 def main(argv):
 
     file = ''
-    charge = 0  # charge for withdrawal in percents
+    charge = 5  # charge for withdrawal in percents
 
     try:
         opts, args = getopt.getopt(argv, "f:", ["file="])
