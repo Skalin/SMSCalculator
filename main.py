@@ -7,6 +7,8 @@ from sms_prices import SMS
 def main(argv):
 
     file = ''
+    charge = 0  # charge for withdrawal in percents
+
     try:
         opts, args = getopt.getopt(argv, "f:", ["file="])
     except getopt.GetoptError:
@@ -15,14 +17,15 @@ def main(argv):
     for opt, arg in opts:
         if opt in ("-f", "--f"):
             file = arg
+        if opt in ("-c", "--c"):
+            charge = arg
 
     sum = {'CZK': 0, 'EUR': 0}
     sum_sms = {'CZK': 0, 'EUR': 0}
 
     currency_course = {'CZK': 1, 'EUR': 25}
     credit_course = {'CZK': 0.7, 'EUR': 0.647}
-    charge = 5 # charge for withdrawal in percents
-    charge_percents = 1 - (5/100)
+    charge_percents = 1 - (charge/100)
 
     if len(file):
         lines = pandas.read_csv(file, usecols=['currency', 'phone_operator', 'amount'])
