@@ -44,9 +44,9 @@ def main(argv):
                 print('MENA: '+currency)
                 print('======================================================================================')
                 print('Celkova cena z SMS pro kontrolu (porovnat se sumou z MySQL): ' + str(sum_sms[currency]))
+                print('Suma kreditu pro kontrolu (porovnat se sumou z MySQL): ' + str(sum_sms[currency] * credit_course[currency]))
                 print('Realna cena z SMS: ' + str(sum[currency] * currency_course[currency]))
                 print('Realna cena po odecteni 5% poplatku: ' + str(sum[currency] * currency_course[currency] * charge_percents))
-                print('Suma kreditu pro kontrolu (porovnat se sumou z MySQL): ' + str(sum_sms[currency] * credit_course[currency]))
                 print('======================================================================================')
 
     else:
